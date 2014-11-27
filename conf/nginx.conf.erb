@@ -1,0 +1,64 @@
+worker_processes  4;
+daemon off;
+
+error_log  logs/error.log;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+	access_log off;
+	log_not_found off;
+	
+    include mime.types;
+    default_type application/octet-stream;
+	sendfile on;
+	keepalive_timeout 65;
+	
+	server {
+
+		listen <%= ENV['PORT'] %>;
+		server_name cdn.thuriot.be;
+
+		location ~ \.(gif|jpg|jpeg|png|ico)$ {
+			expires 1w; 
+			add_header Cache-Control "public";
+			root /images;
+		}
+
+		location / {
+			expires 1w; 
+			add_header Cache-Control "public";
+			root /public;
+		}
+	}
+
+	server {
+		listen <%= ENV['PORT'] %>;
+		server_name css.thuriot.be;
+
+		location / {
+			expires 1y; 
+			add_header Cache-Control "public";
+			root /css;
+		}
+	}
+
+	server {
+		listen <%= ENV['PORT'] %>;
+		server_name js.thuriot.be;
+
+		location / {
+			expires 1y; 
+			add_header Cache-Control "public";
+			root /js;
+		}
+	}
+
+	server {		
+		#visits not supplying hostname
+		server_name _;
+		location / { return 444; }
+	}
+}

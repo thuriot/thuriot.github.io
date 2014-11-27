@@ -1,0 +1,20 @@
+{
+	"name":           "NGINX CDN",
+	"version":        "1.0.0",
+	"description":    "NGINX CDN Server",
+	"repository":     {
+		"type": "git",
+		"url":  "https://github.com/thuriot/thuriot.github.io.git"
+	},
+	"keywords":       [
+		"Nginx",
+		"Heroku"
+	],
+	"author":         "Steven Thuriot",
+	"licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+	]
+}
