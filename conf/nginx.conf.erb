@@ -24,14 +24,14 @@ http {
 		location ~ \.(gif|jpg|jpeg|png|ico)$ {
 			expires 1w; 
 			add_header Cache-Control "public";
-			root /images;
+			root images;
 			index index.html;
 		}
 
 		location / {
 			expires 1w; 
 			add_header Cache-Control "public";
-			root /public;
+			root public;
 			index index.html;
 		}
 	}
@@ -43,7 +43,7 @@ http {
 		location / {
 			expires 1y; 
 			add_header Cache-Control "public";
-			root /css;
+			root css;
 			index index.html;
 		}
 	}
@@ -55,7 +55,7 @@ http {
 		location / {
 			expires 1y; 
 			add_header Cache-Control "public";
-			root /js;
+			root js;
 			index index.html;
 		}
 	}
