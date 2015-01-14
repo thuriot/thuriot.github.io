@@ -19,7 +19,7 @@ http {
 	server {
 
 		listen <%= ENV['PORT'] %>;
-		server_name cdn.thuriot.be;
+		server_name cdn.*;
 
 		location ~ \.(gif|jpg|jpeg|png|ico)$ {
 			expires 1w; 
@@ -38,7 +38,7 @@ http {
 
 	server {
 		listen <%= ENV['PORT'] %>;
-		server_name css.thuriot.be;
+		server_name css.*;
 
 		location / {
 			expires 1y; 
@@ -50,7 +50,7 @@ http {
 
 	server {
 		listen <%= ENV['PORT'] %>;
-		server_name js.thuriot.be;
+		server_name js.*;
 
 		location / {
 			expires 1y; 
