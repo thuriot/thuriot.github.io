@@ -61,6 +61,7 @@ http {
 	}
 
 	server {		
+		listen <%= ENV['PORT'] %>;
 		#visits not supplying hostname
 		server_name _;
 		location / { return 444; }
